@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <!-- Usa la etiqueta above en Django para enlaces estáticos -->
+    <title>Lista de Libros</title>
+</head>
+<body>
+    <link rel = "stylesheet" href = "{% static 'css/booklist.css'%}">
+    {% for book in books_list %}
+    <ul>
+        <h1>{{ book.id }}</h1>
+        <li>title: {{ book.title }}</li>
+        <li>author: {{ book.author }}</li>
+        <li>body: {{ book.body }}</li>
+        <li>page: {{ book.pages }}</li>
+    </ul>
+    {% empty %}
+    <h3>No se han agregado libros aun</h3>
+    {% endfor %}
+</body>
+</html>
